@@ -34,13 +34,13 @@ class QuoteController(object):
                 n = int(self._n)
             except ValueError:
                 self.view.showerr('Incorrect number {}'.format(self._n))
-                return 0
+                return -1
             else:
                 valid_input = True
         quote = self.model.get_quote(n)
         self.view.show(quote)
     def runend(self):
-        if self._n == 'end':
+        if self._n == 'exit':
             return False
         else:
             return True
